@@ -9,17 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ¸ù¾İĞèÒªÊÊÅäµÄ×îĞ¡¿í¶ÈdpÉú³É¶ÔÓ¦ÎÄ¼ş
+ * æ ¹æ®éœ€è¦é€‚é…çš„æœ€å°å®½åº¦dpç”Ÿæˆå¯¹åº”æ–‡ä»¶
  */
 public class SmallWidthDpValueFiles {
-    // ÆÁÄ»Æ¥ÅäµÄ»ù´¡dpÖµ¡£½«ÆÁÄ»ÇĞ³É[BASE_DP]²¿·Ö£¬²»½¨ÒéĞŞ¸Ä£¬
-	// ½¨Òé½« values-sw360dp ÎÄ¼ş¼ĞÏÂµÄ dimens.xml ÎÄ¼ş×÷ÎªÄ¬ÈÏdimen·ÅÈëvaluesÏÂ£¬È»ºó values-sw360dp ÎÄ¼ş¼Ğ¿ÉÒÔ²»ÓÃ¸´ÖÆµ½ res ÏÂ
-	// ×¢Òâ£ºÆäÊµÊÇ½«»ù´¡dpÖµ[BASE_DP]¶ÔÓ¦µÄvalues values-sw[BASE_DP]dp ÎÄ¼ş¼ĞÏÂµÄ dimens.xml ÎÄ¼ş×÷ÎªÄ¬ÈÏdimen·ÅÈëvaluesÏÂ
-	// ÆäËûµÄ values-swXXXdp ¸ù¾İĞèÒª¸´ÖÆµ½resÄ¿Â¼ÏÂ
-    private static final double BASE_DP = 360;
-    // ¶¨ÒåĞèÒªÊÊÅäµÄÆÁÄ»×îĞ¡¿í¶È
-    private static final String SUPPORT_DIMESION = "360,384,392,400,410,411,480,533,592,600,640,662,720,768,800,811,820,960,961,1024,1280,1365";
-    // ¶¨ÒåÈ¡Öµ
+    // å±å¹•åŒ¹é…çš„åŸºç¡€dpå€¼ã€‚å°†å±å¹•åˆ‡æˆ[BASE_DP]éƒ¨åˆ†ï¼Œä¸å»ºè®®ä¿®æ”¹ï¼Œ
+	// å»ºè®®å°† values-sw360dp æ–‡ä»¶å¤¹ä¸‹çš„ dimens.xml æ–‡ä»¶ä½œä¸ºé»˜è®¤dimenæ”¾å…¥valuesä¸‹ï¼Œç„¶å values-sw360dp æ–‡ä»¶å¤¹å¯ä»¥ä¸ç”¨å¤åˆ¶åˆ° res ä¸‹
+	// æ³¨æ„ï¼šå…¶å®æ˜¯å°†åŸºç¡€dpå€¼[BASE_DP]å¯¹åº”çš„values values-sw[BASE_DP]dp æ–‡ä»¶å¤¹ä¸‹çš„ dimens.xml æ–‡ä»¶ä½œä¸ºé»˜è®¤dimenæ”¾å…¥valuesä¸‹
+	// å…¶ä»–çš„ values-swXXXdp æ ¹æ®éœ€è¦å¤åˆ¶åˆ°resç›®å½•ä¸‹
+    private static final double BASE_DP = 720;
+    // å®šä¹‰éœ€è¦é€‚é…çš„å±å¹•æœ€å°å®½åº¦
+    private static final String SUPPORT_DIMESION = "360";
+    // å®šä¹‰å–å€¼
     private static List<Double> nameValue = new ArrayList<>();
 
     private String dirStr = "./res";
@@ -28,7 +28,7 @@ public class SmallWidthDpValueFiles {
     private final static String spTemplate = "<dimen name=\"sp_{0}\">{1}sp</dimen>\n";
 
     /**
-     * {0}-×îĞ¡¿í¶È
+     * {0}-æœ€å°å®½åº¦
      */
     private final static String VALUE_TEMPLATE = "values-sw{0}dp";
 
@@ -44,37 +44,37 @@ public class SmallWidthDpValueFiles {
     }
 
     public void generate() {
-		// ¶¨ÒåÃ¿¸ö dimens.xml ÎÄ¼şÖĞĞèÒªµÄÊıÖµ
+		// å®šä¹‰æ¯ä¸ª dimens.xml æ–‡ä»¶ä¸­éœ€è¦çš„æ•°å€¼
 
-        // ´Ó -60 È¡µ½ -5£¬¼ä¸ô 1
-        for (double i = -60; i < -5; i++) {
-            nameValue.add(i);
-        }
-        // ´Ó -5 È¡µ½ -1£¬¼ä¸ô 0.5
-        for (double i = -5; i < -1; ) {
-            nameValue.add(i);
-            BigDecimal bigDecimal = new BigDecimal(i);
-            BigDecimal bigDecimal1 = bigDecimal.add(new BigDecimal(0.5));
-            i = bigDecimal1.setScale(1, RoundingMode.HALF_UP).doubleValue();
-        }
-		// ´Ó -1 È¡µ½ 1£¬¼ä¸ô 0.2
-        for (double i = -1; i < 1; ) {
+        // ä» -60 å–åˆ° -5ï¼Œé—´éš” 1
+  //       for (double i = -60; i < -5; i++) {
+  //           nameValue.add(i);
+  //       }
+  //       // ä» -5 å–åˆ° -1ï¼Œé—´éš” 0.5
+  //       for (double i = -5; i < -1; ) {
+  //           nameValue.add(i);
+  //           BigDecimal bigDecimal = new BigDecimal(i);
+  //           BigDecimal bigDecimal1 = bigDecimal.add(new BigDecimal(0.5));
+  //           i = bigDecimal1.setScale(1, RoundingMode.HALF_UP).doubleValue();
+  //       }
+		// // ä» -1 å–åˆ° 1ï¼Œé—´éš” 0.2
+  //       for (double i = -1; i < 1; ) {
 			
-            nameValue.add(i);
-			if(i == 0.4)
-				nameValue.add(0.5);
+  //           nameValue.add(i);
+		// 	if(i == 0.4)
+		// 		nameValue.add(0.5);
 
-            BigDecimal bigDecimal = new BigDecimal(i);
-            BigDecimal bigDecimal1 = bigDecimal.add(new BigDecimal(0.2));
-            i = bigDecimal1.setScale(1, RoundingMode.HALF_UP).doubleValue();
-        }
-		// ´Ó 1 È¡µ½ 5£¬¼ä¸ô 0.5
-        for (double i = 1; i <= 5; ) {
-            nameValue.add(i);
-            i += 0.5;
-        }
-        // ´Ó 5 È¡µ½ 720£¬¼ä¸ô 1
-        for (double i = 6; i <= 720; i++) {
+  //           BigDecimal bigDecimal = new BigDecimal(i);
+  //           BigDecimal bigDecimal1 = bigDecimal.add(new BigDecimal(0.2));
+  //           i = bigDecimal1.setScale(1, RoundingMode.HALF_UP).doubleValue();
+  //       }
+		// // ä» 1 å–åˆ° 5ï¼Œé—´éš” 0.5
+  //       for (double i = 1; i <= 5; ) {
+  //           nameValue.add(i);
+  //           i += 0.5;
+  //       }
+        // ä» 1 å–åˆ° 1280ï¼Œé—´éš” 1
+        for (double i = 1; i <= 1280; i++) {
             nameValue.add(i);
         }
 
@@ -104,18 +104,18 @@ public class SmallWidthDpValueFiles {
         }
 
         // sp
-        sbDpValue.append("\n\t<!-- sp value -->\n");
-		for (double i = 3; i < 12; ) {
-			sbDpValue.append("\t" + spTemplate.replace("{0}", changeName(i)).replace("{1}",
-                    changeValue(cellValue, i) + ""));
-			BigDecimal bigDecimal = new BigDecimal(i);
-            BigDecimal bigDecimal1 = bigDecimal.add(new BigDecimal(0.5));
-            i = bigDecimal1.setScale(1, RoundingMode.HALF_UP).doubleValue();
-		}
-        for (int i = 12; i <= 48; i++) {
-            sbDpValue.append("\t" + spTemplate.replace("{0}", changeName(i)).replace("{1}",
-                    changeValue(cellValue, i) + ""));
-        }
+  //       sbDpValue.append("\n\t<!-- sp value -->\n");
+		// for (double i = 3; i < 12; ) {
+		// 	sbDpValue.append("\t" + spTemplate.replace("{0}", changeName(i)).replace("{1}",
+  //                   changeValue(cellValue, i) + ""));
+		// 	BigDecimal bigDecimal = new BigDecimal(i);
+  //           BigDecimal bigDecimal1 = bigDecimal.add(new BigDecimal(0.5));
+  //           i = bigDecimal1.setScale(1, RoundingMode.HALF_UP).doubleValue();
+		// }
+  //       for (int i = 6; i <= 90; i++) {
+  //           sbDpValue.append("\t" + spTemplate.replace("{0}", changeName(i)).replace("{1}",
+  //                   changeValue(cellValue, i) + ""));
+  //       }
 
         sbDpValue.append("</resources>");
 
@@ -144,9 +144,9 @@ public class SmallWidthDpValueFiles {
             }
         } else {
             if ("0".equals(strings[1])) {
-                return "m_" + strings[0].replace("-","");
+                return "" + strings[0].replace("-","");
             } else {
-                return "m_" + strings[0].replace("-","") + "_" + strings[1];
+                return "" + strings[0].replace("-","") + "_" + strings[1];
             }
         }
     }

@@ -110,3 +110,9 @@
 	![SmallWidth](https://raw.githubusercontent.com/itrenjunhua/screen/master/images/values_sw.png)
 
 * 4.将基础dp值[BASE_DP]对应的values 即values-sw[BASE_DP]dp 文件夹下的 dimens.xml 文件作为默认dimen放入values下,其他的 values-swXXXdp 根据需要复制到res目录下
+
+
+## 修改说明
+2020年01月18日
+
+如果BASE_DP 设置为720, ScreenMatch插件默认好像是720，则一定需要手动增加values-sw360目录，这个目录对应大部分3.0x 1080p手机
